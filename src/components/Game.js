@@ -10,7 +10,15 @@ const Game = ({ rows, columns }) => {
     resetGameOver();
   };
   return (
-    <Box className="Game" p={6}>
+    <Box
+      className="Game"
+      p={6}
+      height={"100%"}
+      width={"55%"}
+      display={"flex"}
+      // justifyContent={"center"}
+      alignItems={"center"}
+    >
       {gameOver ? (
         <Menu onClick={startGame} />
       ) : (

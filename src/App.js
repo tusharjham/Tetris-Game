@@ -4,7 +4,13 @@ import Game from "./components/Game";
 
 function App() {
   return (
-    <Box className="App" display="flex" justifyContent="center">
+    <Box
+      className="App"
+      height={"100vh"}
+      width={"100vw"}
+      display="flex"
+      justifyContent="center"
+    >
       <Game rows={20} columns={10} />
     </Box>
   );

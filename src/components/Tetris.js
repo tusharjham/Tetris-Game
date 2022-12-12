@@ -8,9 +8,15 @@ import GameStats from "./GameStats";
 import Previews from "./Previews";
 
 const Tetris = ({ rows, columns, setGameOver }) => {
-  const [board] = useBoard(rows, columns);
   const [gameStats, addLinesClear] = useGameStats();
   const [player, setPlayer, resetPlayer] = usePlayer();
+  const [board] = useBoard({
+    rows,
+    columns,
+    player,
+    resetPlayer,
+    addLinesClear,
+  });
   return (
     <Box
       position={"relative"}

@@ -19,7 +19,7 @@ const buildBoard = (rows, columns) => {
 export const nextBoard = ({ board, player, resetPlayer, addLinesClear }) => {
   const { tetromino, position, isCollided } = player;
   let rows = board.rows.map((row) =>
-    row.map((col) => (col.occupied ? col : defaultCell))
+    row.map((col) => (col.occupied ? col : { ...defaultCell }))
   );
   rows = transferToBoard({
     className: tetromino.className,

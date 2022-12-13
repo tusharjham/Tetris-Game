@@ -9,7 +9,7 @@ const buildPlayer = (prev) => {
   } else {
     tetrominoes = Array(5)
       .fill(0)
-      .map(() => randomTetrominoe());
+      .map((_) => randomTetrominoe());
   }
   return {
     isCollided: false,
@@ -21,7 +21,7 @@ const buildPlayer = (prev) => {
 };
 const usePlayer = () => {
   const [player, setPlayer] = useState(buildPlayer());
-  const resetPlayer = useCallback((prev) => {
+  const resetPlayer = useCallback(() => {
     setPlayer((prev) => buildPlayer(prev));
   }, []);
   return [player, setPlayer, resetPlayer];

@@ -83,3 +83,47 @@ export const transferToBoard = ({
   });
   return rows;
 };
+
+export const rotate = ({ piece, direction }) => {
+  const newPiece = piece.map((row, rindex) => {
+    return piece.map((col, cindex) => {
+      return col[rindex];
+    });
+  });
+  if (direction > 0) return newPiece.map((row) => row.reverse());
+  return newPiece.reverse();
+};
+export const hasCollisions = ({ board, position, shape }) => {
+  for (let i = 0; i < shape.length; i++) {
+    const r = i + position.row;
+    for (let j = 0; j < shape[i].length; j++) {
+      const c = j + position.column;
+      if (shape[r][c]) {
+        if (board.row[r] && board.row[r][c] && board.row[r][c].occupied) {
+          console.log(r, c);
+          console.log(board.rows[r], board.rows[r][c]);
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+};
+
+export const isWithinBoard = ({ board, position, shape }) => {
+  for (let i = 0; i < shape.length; i++) {
+    const r = i + position.row;
+    for (let j = 0; j < shape[i].length; j++) {
+      const c = j + position.column;
+      if (shape[i][j]) {
+        const isValidPosition = board.rows[r] && board.rows[r][c];
+        if (!isValidPosition) {
+          console.log(r, c);
+          console.log(board.rows[r], board.rows[r][c]);
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+};

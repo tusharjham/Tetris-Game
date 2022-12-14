@@ -69,7 +69,7 @@ export const attemptMovement = ({
   }
   setPlayer({
     ...player,
-    collided,
+    isCollided: collided,
     isFastDropping,
     position: nextPosition,
   });

@@ -98,10 +98,8 @@ export const hasCollisions = ({ board, position, shape }) => {
     const r = i + position.row;
     for (let j = 0; j < shape[i].length; j++) {
       const c = j + position.column;
-      if (shape[r][c]) {
-        if (board.row[r] && board.row[r][c] && board.row[r][c].occupied) {
-          console.log(r, c);
-          console.log(board.rows[r], board.rows[r][c]);
+      if (shape[i][j]) {
+        if (board.rows[r] && board.rows[r][c] && board.rows[r][c].occupied) {
           return true;
         }
       }
@@ -118,8 +116,6 @@ export const isWithinBoard = ({ board, position, shape }) => {
       if (shape[i][j]) {
         const isValidPosition = board.rows[r] && board.rows[r][c];
         if (!isValidPosition) {
-          console.log(r, c);
-          console.log(board.rows[r], board.rows[r][c]);
           return false;
         }
       }

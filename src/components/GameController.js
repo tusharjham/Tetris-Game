@@ -2,6 +2,7 @@ import { Input, useInterval } from "@chakra-ui/react";
 import React, { useCallback, useEffect } from "react";
 import { Action, actionForKey } from "../business/Input";
 import { playerController } from "../business/PlayerController";
+import { useDropTime } from "../hooks/useDropTime";
 
 const GameController = ({
   board,
@@ -10,9 +11,10 @@ const GameController = ({
   setGameOver,
   setPlayer,
 }) => {
+  const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({ gameStats });
   useInterval(() => {
     handleInput({ action: Action.SlowDrop });
-  }, 1000);
+  }, dropTime);
   const handleInput = ({ action }) => {
     playerController({
       action,
@@ -24,21 +26,27 @@ const GameController = ({
   };
   const onKeyDown = ({ code }) => {
     const action = actionForKey(code);
-    handleInput({ action });
-  };
-  const onKeyUp = ({ code }) => {
-    const action = actionForKey(code);
-    if (action === Action.Quit) {
+    if (action === Action.Pause) {
+      if (dropTime) {
+        pauseDropTime();
+      } else {
+        resumeDropTime();
+      }
+    } else if (dropTime && action === Action.Quit) {
       setGameOver(true);
+    } else {
+      if (!dropTime) return;
+      handleInput({ action });
     }
   };
+  const onKeyUp = ({ code }) => {};
   useEffect(() => {
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("keyup", onKeyUp);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [player]);
+  }, [player, dropTime]);
   return (
     <>
       {/* <Input

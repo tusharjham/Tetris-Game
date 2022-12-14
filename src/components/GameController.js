@@ -1,4 +1,4 @@
-import { Input } from "@chakra-ui/react";
+import { Input, useInterval } from "@chakra-ui/react";
 import React, { useCallback, useEffect } from "react";
 import { Action, actionForKey } from "../business/Input";
 import { playerController } from "../business/PlayerController";
@@ -10,6 +10,9 @@ const GameController = ({
   setGameOver,
   setPlayer,
 }) => {
+  useInterval(() => {
+    handleInput({ action: Action.SlowDrop });
+  }, 1000);
   const handleInput = ({ action }) => {
     playerController({
       action,

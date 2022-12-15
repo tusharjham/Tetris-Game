@@ -27,10 +27,10 @@ const BoardCell = ({ cell }) => {
   return (
     <div
       className={`BoardCell ${className}`}
-      // border={"2px solid red"}
-      // borderRadius={"6px"}
       style={{
-        backgroundColor: getColor(className),
+        backgroundColor: className.includes("ghost")
+          ? "grey"
+          : getColor(className),
         border: "2px solid",
         borderColor: getColor(className) == "red" ? "black" : "red",
         borderRadius: "6px",

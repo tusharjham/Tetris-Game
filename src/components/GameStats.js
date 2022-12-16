@@ -14,15 +14,15 @@ const GameStats = ({ gameStats }) => {
     >
       <Box>
         <Box>Level</Box>
-        <Box>1</Box>
+        <Box>{gameStats.level}</Box>
       </Box>
       <Box>
         <Box>Lines to Level</Box>
-        <Box>10</Box>
+        <Box>{gameStats.linesPerLevel - gameStats.linesCompleted}</Box>
       </Box>
       <Box>
         <Box>Points</Box>
-        <Box>0</Box>
+        <Box>{gameStats.points}</Box>
       </Box>
     </Box>
   );

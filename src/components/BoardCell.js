@@ -4,6 +4,9 @@ import "./BoardCell.css";
 const BoardCell = ({ cell }) => {
   const { className } = cell;
   function getColor(tetromino) {
+    if (tetromino.includes("fast")) {
+      tetromino = tetromino.substring(1, 15);
+    }
     switch (tetromino) {
       case "tetrominoes__i":
         return "red";

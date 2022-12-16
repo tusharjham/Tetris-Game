@@ -41,7 +41,9 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesClear }) => {
     shape: tetromino.shape,
   });
   // Placing the ghost
-  const cls = ` ${tetromino.className} ${player.isFastDropping ? "" : "ghost"}`;
+  const cls = ` ${tetromino.className} ${
+    player.isFastDropping ? "fast" : "ghost"
+  }`;
   rows = transferToBoard({
     className: cls,
     isOccupied: player.isFastDropping,

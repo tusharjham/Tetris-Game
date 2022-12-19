@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const defaultDropTime = 1000;
 const minimumDropTime = 100;

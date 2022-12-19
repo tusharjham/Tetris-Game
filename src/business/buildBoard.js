@@ -1,4 +1,3 @@
-import React from "react";
 import { defaultCell } from "./Cell";
 import { movePlayer } from "./PlayerController";
 import { transferToBoard } from "./Tetrominoes";

@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import React from "react";
 import "./BoardCell.css";
 const BoardCell = ({ cell }) => {
@@ -28,18 +27,19 @@ const BoardCell = ({ cell }) => {
   }
 
   return (
-    <div
-      className={`BoardCell ${className}`}
-      style={{
-        backgroundColor: className.includes("ghost")
-          ? "grey"
-          : getColor(className),
-        border: "2px solid",
-        borderColor: getColor(className) == "red" ? "black" : "red",
-        borderRadius: "6px",
-      }}
-    >
-      <div className="sparkle"></div>
+    <div className="BoardCell">
+      <div
+        className={`${className}`}
+        style={{
+          backgroundColor: className.includes("ghost")
+            ? "none"
+            : getColor(className),
+          border: className.includes("ghost") ? "2px solid white" : "",
+          height: "100%",
+          width: "100%",
+          boxShadow: "2px",
+        }}
+      ></div>
     </div>
   );
 };

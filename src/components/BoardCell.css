@@ -1,26 +1,5 @@
 .BoardCell {
-  border: 2px solid red;
-  border-radius: 6px;
-}
-.tetrominoes__i {
-  background-color: "red";
-}
-.tetrominoes__j {
-  background-color: "red";
-}
-.tetrominoes__l {
-  background-color: "red";
-}
-.tetrominoes__o {
-  background-color: "red";
-}
-.tetrominoes__s {
-  background-color: "red";
-}
-.tetrominoes__t {
-  background-color: "red";
-  color: blue;
-}
-.tetrominoes__z {
-  background-color: "red";
+  box-sizing: border-box;
+  padding: 1px;
+  margin: 1px;
 }

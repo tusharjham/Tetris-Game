@@ -1,8 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
 import buildBoard from "../business/buildBoard";
-import { defaultCell } from "../business/Cell";
-import { randomTetrominoe, transferToBoard } from "../business/Tetrominoes";
+import { transferToBoard } from "../business/Tetrominoes";
 import BoardCell from "./BoardCell";
 
 const Preview = ({ tetromino, index }) => {
@@ -19,12 +18,19 @@ const Preview = ({ tetromino, index }) => {
     <Box
       className="Preview"
       position={"absolute"}
-      right={"0%"}
-      top={`${index * 20}vh`}
+      right={{ base: "0%", sm: "1%", lg: "2%" }}
+      top={{
+        base: `${(index + 0.25) * 14}vh`,
+        sm: `${(index + 0.13) * 16.5}vh`,
+        lg: `${(index + 0.05) * 16.5}vh`,
+      }}
       borderRadius={"10px"}
-      height={"25%"}
-      width={"25%"}
-      border={"2px solid green"}
+      height={{ base: "14%", sm: "17%" }}
+      width={"20%"}
+      boxShadow={"0px 0px 5px 1px whitesmoke"}
+      boxSizing={"border-box"}
+      padding={"14px 0px 0px 5px"}
+      bg={"black"}
     >
       <Box
         className="Preview-Board"

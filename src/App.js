@@ -10,6 +10,8 @@ function App() {
       width={"100vw"}
       display="flex"
       justifyContent="center"
+      alignItems={"center"}
+      bg={"#09012a"}
     >
       <Game rows={20} columns={10} />
     </Box>

@@ -1,5 +1,5 @@
-import { Input, useInterval } from "@chakra-ui/react";
-import React, { useCallback, useEffect } from "react";
+import { useInterval } from "@chakra-ui/react";
+import React, { useEffect } from "react";
 import { Action, actionForKey } from "../business/Input";
 import { playerController } from "../business/PlayerController";
 import { useDropTime } from "../hooks/useDropTime";
@@ -39,25 +39,13 @@ const GameController = ({
       handleInput({ action });
     }
   };
-  const onKeyUp = ({ code }) => {};
   useEffect(() => {
     window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("keyup", onKeyUp);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [player, dropTime]);
-  return (
-    <>
-      {/* <Input
-        className="GameController"
-        type={"text"}
-        onKeyDown={onKeyDown}
-        onKeyUp={onKeyUp}
-        autoFocus
-      /> */}
-    </>
-  );
+  return <></>;
 };
 
 export default GameController;

@@ -5,12 +5,13 @@ const GameStats = ({ gameStats }) => {
   return (
     <Box
       position={"absolute"}
-      right={"-0.8%"}
-      bottom={"0%"}
-      width={"25%"}
-      fontSize={"xl"}
+      right={{ base: "0%" }}
+      bottom={{ base: "5%", sm: "3%", md: "3%" }}
+      width={{ base: "22%" }}
+      fontSize={{ base: "12px", sm: "sm", md: "md", lg: "lg" }}
       fontWeight={"bold"}
       boxSizing={"border-box"}
+      color={"white"}
     >
       <Box>
         <Box>Level</Box>

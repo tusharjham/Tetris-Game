@@ -20,12 +20,14 @@ const Tetris = ({ rows, columns, setGameOver }) => {
   });
   return (
     <Box
+      className="Tetris"
       position={"relative"}
-      height={"88%"}
+      height={"100%"}
       width={"100%"}
-      border={"3px solid black"}
     >
-      <Board board={board} />
+      <Box height={"100%"} width={"74%"} display={"flex"} alignItems={"center"}>
+        <Board board={board} />
+      </Box>
       <GameStats gameStats={gameStats} />
       <Previews tetrominoes={player.tetrominoes} />
       <GameController

@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-
+import levelUp from "../media/levelUp.wav";
 const buildGameStats = () => {
   return {
     level: 1,
@@ -20,6 +20,10 @@ const useGameStats = () => {
         newLinesCompleted >= linesPerLevel
           ? previous.level + 1
           : previous.level;
+      if (level != previous.level) {
+        const beat = new Audio(levelUp);
+        beat.play();
+      }
       const linesCompleted = newLinesCompleted % linesPerLevel;
       return {
         level,

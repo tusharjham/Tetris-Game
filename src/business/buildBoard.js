@@ -1,7 +1,7 @@
 import { defaultCell } from "./Cell";
 import { movePlayer } from "./PlayerController";
 import { transferToBoard } from "./Tetrominoes";
-
+import lineCleared from "../media/lineCleared.wav";
 const buildBoard = (rows, columns) => {
   const board = new Array(rows);
   for (let i = 0; i < rows; i++) {
@@ -73,6 +73,8 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesClear }) => {
     return acc;
   }, []);
   if (linesCleared > 0) {
+    const beat = new Audio(lineCleared);
+    beat.play();
     addLinesClear(linesCleared);
   }
   if (player.isCollided || player.isFastDropping) {

@@ -13,7 +13,7 @@ function App() {
       alignItems={"center"}
       bg={"#09012a"}
     >
-      <Game rows={20} columns={10} />
+      <Game rows={20} columns={13} />
     </Box>
   );
 }

@@ -9,9 +9,9 @@ const Menu = ({ onClick }) => {
         height={{ base: "10vh", md: "12vh", lg: "15vh" }}
         width={{ base: "42vw", sm: "34vw", md: "28vw", lg: "24vw", xl: "20vw" }}
         borderRadius={"30px"}
-        bg={"whiteAlpha.300"}
         color={"orange"}
         variant={"none"}
+        backgroundColor={"darkcyan"}
       >
         <Text fontSize={{ base: "2xl", sm: "3xl", lg: "4xl" }}>
           Play Tetris

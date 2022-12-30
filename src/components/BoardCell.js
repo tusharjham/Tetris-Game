@@ -10,9 +10,9 @@ const BoardCell = ({ cell }) => {
       case "tetrominoes__i":
         return "red";
       case "tetrominoes__j":
-        return "blue";
+        return "skyblue";
       case "tetrominoes__l":
-        return "green";
+        return "lightgreen";
       case "tetrominoes__o":
         return "orange";
       case "tetrominoes__s":
@@ -20,7 +20,7 @@ const BoardCell = ({ cell }) => {
       case "tetrominoes__t":
         return "yellow";
       case "tetrominoes__z":
-        return "white";
+        return "whitesmoke";
       default:
         return "black";
     }
@@ -29,17 +29,22 @@ const BoardCell = ({ cell }) => {
   return (
     <div className="BoardCell">
       <div
-        className={`${className}`}
+        className={`${className}${
+          className.length != 0 && !className.includes("ghost") ? " Tetro" : ""
+        }`}
         style={{
           backgroundColor: className.includes("ghost")
             ? "none"
             : getColor(className),
-          border: className.includes("ghost") ? "2px solid white" : "",
           height: "100%",
           width: "100%",
           boxShadow: "2px",
         }}
-      ></div>
+      >
+        <div
+          className={`${getColor(className) != "black" ? "sparkle" : ""}`}
+        ></div>
+      </div>
     </div>
   );
 };
